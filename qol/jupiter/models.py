@@ -12,6 +12,7 @@ class Employee(models.Model):
         return self.e_name
 
 class TimeRecord(models.Model):
-    # TODO add choice field for the time 
+    RECORD_TYPES = (('IN', 'In'), ('OUT', 'Out'))
+    time_names = models.CharField(max_lenth=5, choices=RECORD_TYPES)
     time_record = models.DateTimeField()
     e_id = Models.ForeignKey(Employee, on_delete=Models.CASCADE)
